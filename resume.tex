@@ -26,6 +26,9 @@
 
 \documentclass[11pt, a4paper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
 
+% For page number
+\usepackage{lastpage}
+
 \geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
 
 \fontdir[fonts/] % Specify the location of the included fonts
@@ -49,18 +52,17 @@
 
 \name{William}{Hayward}
 \address{56 Armadale Street, St Lucia 4067, Brisbane, QLD}
-\mobile{(+61) 04-3525-1674}
+\mobile{(+61) 435 251 674}
 
 \email{HaywardWilliam1996@gmail.com}
 \homepage{williamhayward.github.io}
 \github{WilliamHayward}
 \linkedin{williamhayward1996}
-\stackoverflow{7939190}{William Hayward}
 
-\position{Software Developer{\enskip\cdotp\enskip}Security Expert} % Your expertise/fields
+\position{Software Developer} % Your expertise/fields
 %\quote{``Make the change that you want to see in the world."} % A quote or statement
 
-\makecvfooter{}{William Hayward~~~·~~~Résumé}{\thepage} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
+\makecvfooter{williamhayward.github.io}{William Hayward~~~·~~~Résumé}{\thepage\ of \pageref{LastPage}} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
 
 %----------------------------------------------------------------------------------------
 
@@ -76,14 +78,11 @@
 \input{cv-sections/education.tex}
 \input{cv-sections/skills.tex}
 \input{cv-sections/experience.tex}
+\input{cv-sections/hobbies.tex}
+\newpage
 
-\newpage % Force a new page for looks
-
-\input{cv-sections/extracurricular.tex}
-\input{cv-sections/honors.tex}
-\input{cv-sections/presentation.tex}
-\input{cv-sections/writing.tex}
-\input{cv-sections/committees.tex}
+\input{cv-sections/projects.tex}
+\input{cv-sections/references.tex}
 
 %----------------------------------------------------------------------------------------
 
