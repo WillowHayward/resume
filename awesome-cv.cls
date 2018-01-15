@@ -536,6 +536,14 @@
   \color{gray}\vhrulefill{0.9pt}
 }
 
+% Usage: \centeredHeader{<section-title>}
+\newcommand{\centeredHeader}[1]{%
+  \vspace{\acvSectionTopSkip}
+  \sectionstyle{#1}
+  \phantomsection
+  \color{gray}\vhrulefill{0.9pt}
+}
+
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
 \newcommand{\cvsubsection}[1]{%
