@@ -1,4 +1,4 @@
-# William Hayward's Resume
+# Willow Hayward's Resume
 Resume of William Hayward
 
 # Attribution
