@@ -1,5 +1,5 @@
 # Willow Hayward's Resume
-Resume of William Hayward
+Resume of Willow Hayward
 
 # Attribution
 
