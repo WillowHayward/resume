@@ -1,0 +1,5 @@
+pipeline:
+  build:
+    image: blang/latex:ubuntu
+    commands:
+      - make
