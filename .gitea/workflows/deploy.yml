@@ -6,12 +6,15 @@ on:
       - main
       - 1-build-pipeline
 jobs:
-  Build-And-Deploy:
+  Checkout:
     runs-on: ubuntu-latest
-    #container: blang/latex
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+  Build:
+    runs-on: ubuntu-latest
+    container: blang/latex
+    steps:
       - name: ls
         run: ls
       - name: Build latex
@@ -19,6 +22,10 @@ jobs:
         run: make
       - name: Rename output file
         run: mv _build/resume.pdf _build/WillowHaywardResume.pdf
+  Deploy:
+    runs-on: ubuntu-latest
+    #container: blang/latex
+    steps:
       - name: Install sudo package
         run: apt update && apt install sudo
       - name: Deploy pdf
