@@ -19,7 +19,7 @@ jobs:
         uses: https://github.com/xu-cheng/texlive-action/full@v1
         with:
           run: |
-            ls
+            ls -la
             apk add make
             make
       - name: Install sudo
