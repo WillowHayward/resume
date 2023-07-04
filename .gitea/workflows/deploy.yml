@@ -14,6 +14,7 @@ jobs:
         run: apt update && apt install sudo && apt install curl -y
       - name: Install node
         run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install 16
+      - run: node --version
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: ls
