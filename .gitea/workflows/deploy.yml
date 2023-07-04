@@ -15,7 +15,7 @@ jobs:
       - name: ls
         run: ls
       - name: Build latex
-        uses: blang/latex
+        uses: docker://blang/latex
         run: make
       - name: Rename output file
         run: mv _build/resume.pdf _build/WillowHaywardResume.pdf
