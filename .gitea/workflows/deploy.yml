@@ -17,13 +17,10 @@ jobs:
         uses: actions/checkout@v3
       - run: pwd
       - run: ls -la
-      - name: Build
-        uses: docker://blang/latex
-        with:
-          args: ls
       - name: Build latex
         uses: https://github.com/xu-cheng/texlive-action/full@v1
         with:
+          options: --volumes-from ${{ env.JOB_CONTAINER_NAME }}
           run: |
             pwd
             ls -la
