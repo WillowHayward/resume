@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     container: blang/latex
     steps:
+      - name: Install workflow dependencies
+        run: apt update && apt install sudo && apt install curl
       - name: Install node
         run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && nvm use 16
       - name: Check out repository code
@@ -21,8 +23,6 @@ jobs:
         run: make
       - name: Rename output file
         run: mv _build/resume.pdf _build/WillowHaywardResume.pdf
-      - name: Install sudo package
-        run: apt update && apt install sudo
       - name: Deploy pdf
         uses: aquelle1/ssh-deploy@main
         env:
