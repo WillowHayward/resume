@@ -24,6 +24,7 @@ jobs:
         uses: https://github.com/xu-cheng/texlive-action/full@v1
         with:
           run: |
+            pwd
             ls -la
             apk add make
             make
