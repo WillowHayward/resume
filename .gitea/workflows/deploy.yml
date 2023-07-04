@@ -10,23 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     container: blang/latex
     steps:
-      - run: echo ${{gitea.repositoryUrl}}
-      - name: Checkout
-        run: git clone ${{gitea.repositoryUrl}} ./
-        #- name: Install workflow dependencies
-        #run: apt update && apt install sudo && apt install curl -y
-        #- name: Install node
-        #run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install 16
-        #- run: node --version
-        #- name: Check out repository code
-        #uses: actions/checkout@v3
-      - name: ls
-        run: ls
+      #- name: Install node
+      #run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install 16
+      #- run: node --version
+      - name: Check out repository code
+        uses: actions/checkout@v3
       - name: Build latex
+        uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: |
+            apk add make
+            make
         #uses: docker://blang/latex:latest
         run: make
-      - name: Rename output file
-        run: mv _build/resume.pdf _build/WillowHaywardResume.pdf
+      - name: Install sudo
+        run: apt update && apt install sudo
       - name: Deploy pdf
         uses: aquelle1/ssh-deploy@main
         env:
