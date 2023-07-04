@@ -1,6 +1,6 @@
 name: Build & Deploy
 run-name: ${{ gitea.actor }} is deploying her resume
-on: 
+on:
   push:
     branches:
       - main
@@ -14,8 +14,13 @@ jobs:
       - name: Install dependencies
         run: corepack enable && yarn install
       - name: Build latex
-        uses: blang/latex
-        run: make
+        uses: https://github.com/xu-cheng/latex-action@v2
+        with:
+          root_file: resume.tex
+          #compiler: xelatex
+          latexmk_use_xelatex: true
+      - name: Rename output file
+        run: mv _build/resume.pdf _build/WillowHaywardResume.pdf
       - name: Install sudo package
         run: apt update && apt install sudo
       - name: Deploy pdf
