@@ -14,9 +14,10 @@ jobs:
       - name: Build latex
         uses: https://github.com/xu-cheng/latex-action@v2
         with:
-          root_file: ./resume.tex
+          root_file: resume.tex
+          working_directory: .
           #compiler: xelatex
-          latexmk_use_xelatex: true
+          #latexmk_use_xelatex: true
       - name: Rename output file
         run: mv _build/resume.pdf _build/WillowHaywardResume.pdf
       - name: Install sudo package
