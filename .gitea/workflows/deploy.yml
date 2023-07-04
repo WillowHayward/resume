@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: blang/latex
     steps:
+      - run: echo ${{gitea.repositoryUrl}}
       - name: Checkout
         run: git clone ${{gitea.repositoryUrl}} ./
         #- name: Install workflow dependencies
