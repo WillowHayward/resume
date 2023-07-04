@@ -11,7 +11,7 @@ jobs:
     container: blang/latex
     steps:
       - name: Checkout
-        run: git clone ${{gitea.repositoryUrl}} .
+        run: git clone ${{gitea.repositoryUrl}} ./
         #- name: Install workflow dependencies
         #run: apt update && apt install sudo && apt install curl -y
         #- name: Install node
