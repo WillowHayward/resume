@@ -16,6 +16,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: pwd
+      - run: ls -la
       - name: Build
         uses: docker://blang/latex
         with:
