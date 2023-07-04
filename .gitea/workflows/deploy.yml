@@ -20,7 +20,7 @@ jobs:
       - name: Build latex
         uses: https://github.com/xu-cheng/texlive-action/full@v1
         with:
-          options: --volumes-from ${{ env.JOB_CONTAINER_NAME }}
+          options: --volumes-from act_runner
           run: |
             pwd
             ls -la
