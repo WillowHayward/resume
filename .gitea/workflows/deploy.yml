@@ -8,13 +8,14 @@ on:
 jobs:
   Build-And-Deploy:
     runs-on: ubuntu-latest
-    container: blang/latex
+    #container: blang/latex
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: ls
         run: ls
       - name: Build latex
+        uses: blang/latex
         run: make
       - name: Rename output file
         run: mv _build/resume.pdf _build/WillowHaywardResume.pdf
