@@ -21,8 +21,6 @@ jobs:
           run: |
             apk add make
             make
-        #uses: docker://blang/latex:latest
-        run: make
       - name: Install sudo
         run: apt update && apt install sudo
       - name: Deploy pdf
