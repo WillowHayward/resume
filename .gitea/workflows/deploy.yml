@@ -15,6 +15,10 @@ jobs:
       #- run: node --version
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: Build
+        uses: docker://blang/latex
+        with:
+          args: make
       - name: Build latex
         uses: https://github.com/xu-cheng/texlive-action/full@v1
         with:
