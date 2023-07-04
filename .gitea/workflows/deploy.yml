@@ -19,6 +19,7 @@ jobs:
         uses: https://github.com/xu-cheng/texlive-action/full@v1
         with:
           run: |
+            ls
             apk add make
             make
       - name: Install sudo
@@ -27,7 +28,7 @@ jobs:
         uses: aquelle1/ssh-deploy@main
         env:
           REMOTE_HOST: whc.fyi
-          REMOTE_USER: ${{secrets.DEPLOY_USER}}
+          REMOTE_USER: ci
           SSH_PRIVATE_KEY: ${{secrets.DEPLOY_KEY}}
           SOURCE: ./_build/
           TARGET: ${{secrets.DEPLOY_PATH}}
