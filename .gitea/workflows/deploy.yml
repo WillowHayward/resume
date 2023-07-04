@@ -11,12 +11,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Install dependencies
-        run: corepack enable && yarn install
       - name: Build latex
         uses: https://github.com/xu-cheng/latex-action@v2
         with:
-          root_file: resume.tex
+          root_file: ./resume.tex
           #compiler: xelatex
           latexmk_use_xelatex: true
       - name: Rename output file
