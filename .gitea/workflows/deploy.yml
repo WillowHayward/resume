@@ -18,7 +18,7 @@ jobs:
       - name: Build
         uses: docker://blang/latex
         with:
-          args: make
+          args: ls && make
       - name: Build latex
         uses: https://github.com/xu-cheng/texlive-action/full@v1
         with:
