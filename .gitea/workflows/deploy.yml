@@ -11,7 +11,7 @@ jobs:
     container: blang/latex
     steps:
       - name: Install workflow dependencies
-        run: apt update && apt install sudo && apt install curl
+        run: apt update && apt install sudo && apt install curl -y
       - name: Install node
         run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && nvm use 16
       - name: Check out repository code
