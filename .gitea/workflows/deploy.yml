@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: ls
+        run: ls
       - name: Build latex
         uses: https://github.com/xu-cheng/latex-action@v2
         with:
