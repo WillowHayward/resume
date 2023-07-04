@@ -16,7 +16,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Build latex
-        uses: xu-cheng/texlive-action/full@v1
+        uses: https://github.com/xu-cheng/texlive-action/full@v1
         with:
           run: |
             apk add make
