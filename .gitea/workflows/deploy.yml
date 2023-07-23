@@ -27,6 +27,7 @@ jobs:
             ls -la
             apk add make
             make
+      - run: ls ./_build
       - name: Install sudo
         run: apt update && apt install sudo
       - name: Deploy test
@@ -36,8 +37,8 @@ jobs:
           REMOTE_HOST: whc.fyi
           REMOTE_USER: ci
           SSH_PRIVATE_KEY: ${{secrets.DEPLOY_KEY}}
-          SOURCE: ./_build/
-          TARGET: ${{secrets.DEPLOY_PATH}}
+          SOURCE: ./_build/resume.pdf
+          TARGET: ${{secrets.DEPLOY_PATH_NEXT}}/WillowHaywardResume.pdf
       - name: Deploy develop
         if: ${{ gitea.ref_name == 'develop' }}
         uses: https://gitea.com/aquelle1/ssh-deploy@main
@@ -46,7 +47,7 @@ jobs:
           REMOTE_USER: ci
           SSH_PRIVATE_KEY: ${{secrets.DEPLOY_KEY}}
           SOURCE: ./_build/
-          TARGET: ${{secrets.DEPLOY_PATH}}
+          TARGET: ${{secrets.DEPLOY_PATH_NEXT}}
       - name: Deploy release
         if: ${{ gitea.ref_name == 'release' }}
         uses: https://gitea.com/aquelle1/ssh-deploy@main
