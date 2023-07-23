@@ -3,7 +3,8 @@ run-name: ${{ gitea.actor }} is deploying her resume
 on:
   push:
     branches:
-      - main
+      - release
+      - develop
       - 1-build-pipeline
 jobs:
   Build-And-Deploy:
@@ -28,8 +29,27 @@ jobs:
             make
       - name: Install sudo
         run: apt update && apt install sudo
-      - name: Deploy pdf
-        uses: aquelle1/ssh-deploy@main
+      - name: Deploy test
+        if: ${{ gitea.ref_name == '1-build-pipeline' }}
+        uses: https://gitea.com/aquelle1/ssh-deploy@main
+        env:
+          REMOTE_HOST: whc.fyi
+          REMOTE_USER: ci
+          SSH_PRIVATE_KEY: ${{secrets.DEPLOY_KEY}}
+          SOURCE: ./_build/
+          TARGET: ${{secrets.DEPLOY_PATH}}
+      - name: Deploy develop
+        if: ${{ gitea.ref_name == 'develop' }}
+        uses: https://gitea.com/aquelle1/ssh-deploy@main
+        env:
+          REMOTE_HOST: whc.fyi
+          REMOTE_USER: ci
+          SSH_PRIVATE_KEY: ${{secrets.DEPLOY_KEY}}
+          SOURCE: ./_build/
+          TARGET: ${{secrets.DEPLOY_PATH}}
+      - name: Deploy release
+        if: ${{ gitea.ref_name == 'release' }}
+        uses: https://gitea.com/aquelle1/ssh-deploy@main
         env:
           REMOTE_HOST: whc.fyi
           REMOTE_USER: ci
